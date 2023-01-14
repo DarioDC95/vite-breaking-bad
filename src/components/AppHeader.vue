@@ -6,7 +6,7 @@
 
 <template>
     <header class="py-3">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col">
                     <div class="mycard d-flex align-items-center">

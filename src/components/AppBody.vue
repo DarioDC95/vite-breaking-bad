@@ -16,23 +16,41 @@
 
 <template>
     <main>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="card rounded-0 border-0 bg-black text-white">
-                        Found 39 cards
+        <section class="bg-warning">
+            <div class="container">
+                <div class="row selection-type ps-2 py-4">
+                    <div class="col">
+                        <div class="card">
+                            <select class="form-select p-1" name="selec-type" id="select-type">
+                                <option value="alien">Alien</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div v-if="store.loading == false" class="row rounded-4 flex-column p-5 bg-white">
+                    <div class="col mb-4">
+                        <div class="card p-3 rounded-0 border-0 bg-black text-white">
+                            <h6 class="m-0">Found 39 cards</h6>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row justify-content-center row-cols-5 gy-5">
+                            <div class="col" v-for="(value, index) in store.cards" :key="index">
+                                <AppCardYoGiOh :url="value.card_images[0].image_url" :title="value.name" :type="value.archetype"/> 
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row row-cols-5 gy-5">
-                <div v-for="(value, index) in store.cards" :key="index" class="col">
-                    <AppCardYoGiOh :url="value.card_images[0].image_url" :title="value.name" :type="value.archetype"/> 
-                </div>
-            </div>
-        </div>
+        </section>
     </main>
 </template>
 
 <style scope lang="scss">
-    
+.selection-type {
+
+    .card{
+        width: 150px;
+    }
+}
 </style>
