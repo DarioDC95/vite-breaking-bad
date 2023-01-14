@@ -1,10 +1,16 @@
 <script>
+    // store data
     import {store} from '../store.js';
+
+    // components
     import AppCardYoGiOh from './AppCardYoGiOh.vue';
+    import AppLoader from './AppLoader.vue';
+
     export default {
         name: 'AppBody',
         components: {
             AppCardYoGiOh,
+            AppLoader,
         },
         data() {
             return {
@@ -16,7 +22,7 @@
 
 <template>
     <main>
-        <section class="bg-warning">
+        <section class="bg-warning pb-3">
             <div class="container">
                 <div class="row selection-type ps-2 py-4">
                     <div class="col">
@@ -39,6 +45,11 @@
                                 <AppCardYoGiOh :url="value.card_images[0].image_url" :title="value.name" :type="value.archetype"/> 
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div v-else class="row rounded-4 p-5 bg-white">
+                    <div class="col">
+                        <AppLoader />
                     </div>
                 </div>
             </div>

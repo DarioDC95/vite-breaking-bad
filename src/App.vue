@@ -1,11 +1,12 @@
 <script>
+  // libraries
   import axios from 'axios';
 
-  // componenti
+  // components
   import AppHeader from './components/AppHeader.vue';
   import AppBody from './components/AppBody.vue';
 
-  // store di data
+  // store data
   import { store } from './store.js';
 
   export default {
