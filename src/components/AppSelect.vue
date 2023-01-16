@@ -23,6 +23,6 @@
 
 <style scoped lang="scss">
     .card{
-        width: 200px;
+        max-width: 300px;
     }
 </style>
