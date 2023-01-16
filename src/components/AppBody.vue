@@ -1,6 +1,7 @@
 <script>
     // store data
     import {store} from '../store.js';
+    import axios from 'axios';
 
     // components
     import AppCardYoGiOh from './AppCardYoGiOh.vue';
@@ -18,6 +19,14 @@
             return {
                 store,
             }
+        },
+        methods: {
+            select_archetype( value ) {
+                axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${value}`).then((response) => {
+                store.cards = response.data.data;
+                store.loading = false;
+                })
+            }
         }
     }
 </script>
@@ -28,7 +37,7 @@
             <div class="container">
                 <div class="row ps-2 py-4">
                     <div class="col">
-                        <AppSelect :archetype="store.cards_archetypes" />
+                        <AppSelect :archetype="store.cards_archetypes" @selection="select_archetype" />
                     </div>
                 </div>
                 <div v-if="store.loading == false" class="row rounded-4 flex-column p-5 bg-white">

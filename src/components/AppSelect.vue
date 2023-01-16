@@ -3,18 +3,26 @@
         name: 'AppSelect',
         props: {
             archetype: Object,
-        }
+        },
+        data() {
+            return {
+                change: "",
+            }
+        },
     }
 </script>
+
 <template>
     <div class="card">
-        <select class="form-select p-1" name="selec-type" id="select-type">
-            <option v-for="(value, index) in archetype" :key="index" value="value.archetype_name">{{ value.archetype_name }}</option>
+        <select class="form-select p-1" name="select-type" id="select-type" v-model="change" @change="$emit('selection', change)">
+            <option value="" disabled selected>Select your archetype</option>
+            <option v-for="(value, index) in archetype" :key="index" :value="value.archetype_name">{{ value.archetype_name }}</option>
         </select>
     </div>
 </template>
+
 <style scoped lang="scss">
     .card{
-        width: 150px;
+        width: 200px;
     }
 </style>
