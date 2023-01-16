@@ -36,7 +36,7 @@
                 <div v-if="store.loading == false" class="row rounded-4 flex-column p-5 bg-white">
                     <div class="col mb-4">
                         <div class="card p-3 rounded-0 border-0 bg-black text-white">
-                            <h6 class="m-0">Found 39 cards</h6>
+                            <h6 class="m-0">Found {{ store.cards.length }} cards</h6>
                         </div>
                     </div>
                     <div class="col">
