@@ -22,6 +22,7 @@
         },
         methods: {
             select_archetype( value ) {
+                store.loading = true;
                 axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${value}`).then((response) => {
                 store.cards = response.data.data;
                 store.loading = false;
