@@ -5,12 +5,14 @@
     // components
     import AppCardYoGiOh from './AppCardYoGiOh.vue';
     import AppLoader from './AppLoader.vue';
+    import AppSelect from './AppSelect.vue';
 
     export default {
         name: 'AppBody',
         components: {
             AppCardYoGiOh,
             AppLoader,
+            AppSelect
         },
         data() {
             return {
@@ -24,13 +26,9 @@
     <main>
         <section class="bg-warning pb-3">
             <div class="container">
-                <div class="row selection-type ps-2 py-4">
+                <div class="row ps-2 py-4">
                     <div class="col">
-                        <div class="card">
-                            <select class="form-select p-1" name="selec-type" id="select-type">
-                                <option value="alien">Alien</option>
-                            </select>
-                        </div>
+                        <AppSelect />
                     </div>
                 </div>
                 <div v-if="store.loading == false" class="row rounded-4 flex-column p-5 bg-white">
@@ -57,11 +55,6 @@
     </main>
 </template>
 
-<style scope lang="scss">
-.selection-type {
+<style scoped lang="scss">
 
-    .card{
-        width: 150px;
-    }
-}
 </style>

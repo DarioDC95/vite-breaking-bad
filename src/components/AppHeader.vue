@@ -19,7 +19,7 @@
     </header>
 </template>
 
-<style scope lang="scss">
+<style scoped lang="scss">
     .mycard {
 
         img {
