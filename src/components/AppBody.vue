@@ -28,7 +28,7 @@
             <div class="container">
                 <div class="row ps-2 py-4">
                     <div class="col">
-                        <AppSelect />
+                        <AppSelect :archetype="store.cards_archetypes" />
                     </div>
                 </div>
                 <div v-if="store.loading == false" class="row rounded-4 flex-column p-5 bg-white">

@@ -24,9 +24,13 @@
     },
     methods: {
       getCardsYuGiOh() {
-        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Alien').then((response) => {
+        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Dark Magician').then((response) => {
           store.cards = response.data.data;
           store.loading = false;
+
+          axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php').then((response) => {
+            store.cards_archetypes = response.data
+          })
         })
       },
     },
